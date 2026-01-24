@@ -1,12 +1,16 @@
-# Java/Maven
+# Java
 target/
 *.class
+*.jar
 
 # IDEs
 .idea/
 *.iml
 .vscode/
-
-# Kafka/Docker logs & state
-# If you map volumes in docker-compose, ignore those folders here
+.DS_Store
 data/
+logs/
+
+# Build tools
+.gradle/
+build/
