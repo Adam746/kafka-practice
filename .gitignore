@@ -1,16 +1,44 @@
-# Java
-target/
+# --- Java & Build Tools ---
+**/target/
+**/build/
+**/out/
 *.class
 *.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+!.mvn/wrapper/maven-wrapper.jar
 
-# IDEs
+# --- Docker & Local Environment ---
+**/data/
+**/logs/
+.env
+
+# --- IntelliJ IDEA ---
 .idea/
 *.iml
-.vscode/
-.DS_Store
-data/
-logs/
+*.iws
+*.ipr
+out/
 
-# Build tools
-.gradle/
-build/
+# --- VS Code ---
+.vscode/
+*.code-workspace
+
+# --- Eclipse & NetBeans ---
+.metadata
+.classpath
+.project
+.settings/
+.factorypath
+bin/
+nbproject/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
