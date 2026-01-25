@@ -1,8 +1,8 @@
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
-import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
-import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.Topology;
+import topologies.StreamTopologyBuilder;
 
 import java.util.Properties;
 
@@ -14,18 +14,9 @@ public class StreamProcessor {
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
-        StreamsBuilder builder = new StreamsBuilder();
-        
-        // 1. Source
-        KStream<String, String> inputLines = builder.stream("practice-input");
+        Topology topology = StreamTopologyBuilder.buildTopology();
 
-        // 2. Process (Uppercase)
-        KStream<String, String> uppercasedLines = inputLines.mapValues(value -> value.toUpperCase());
-
-        // 3. Sink
-        uppercasedLines.to("practice-output");
-
-        KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        KafkaStreams streams = new KafkaStreams(topology, props);
         streams.start();
 
         // Close shutdown hook to maintain clean state
