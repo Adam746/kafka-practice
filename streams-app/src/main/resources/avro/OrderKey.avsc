@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "namespace": "com.example.kafka.model",
+  "name": "OrderKey",
+  "fields": [
+    { "name": "order_id", "type": "string" },
+    { "name": "region_id", "type": "int" }
+  ]
+}

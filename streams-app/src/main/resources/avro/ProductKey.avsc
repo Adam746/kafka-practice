@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "namespace": "com.example.kafka.model",
+  "name": "ProductKey",
+  "fields": [
+    {
+      "name": "product_id",
+      "type": "string",
+      "doc": "The unique identifier for the product, used as the primary join key."
+    }
+  ]
+}

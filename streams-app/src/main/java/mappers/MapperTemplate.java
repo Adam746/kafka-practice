@@ -1,10 +1,12 @@
 package mappers;
 
+import com.example.kafka.model.Order;
+import com.example.kafka.model.OrderKey;
 import org.apache.kafka.streams.kstream.ValueMapperWithKey;
 
-public class MapperTemplate implements ValueMapperWithKey<String, String, String> {
+public class MapperTemplate implements ValueMapperWithKey<OrderKey, Order, Order> {
     @Override
-    public String apply(String key, String value) {
+    public Order apply(OrderKey key, Order value) {
         return value;
     }
 }

@@ -28,6 +28,19 @@ services:
         KAFKA_CLUSTERS_0_NAME: local-practice-cluster
         KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:29092
         DYNAMIC_CONFIG_ENABLED: 'true'
+        KAFKA_CLUSTERS_0_SCHEMAREGISTRY: "http://schema-registry:8081"
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.8.0
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - broker
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
   kafka-init:
     image: confluentinc/cp-kafka:${CONFLUENT_VERSION}
     container_name: kafka-init

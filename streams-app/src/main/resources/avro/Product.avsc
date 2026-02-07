@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "namespace": "com.example.kafka.model",
+  "name": "Product",
+  "fields": [
+    { "name": "product_id", "type": "string" },
+    { "name": "name", "type": "string" },
+    { "name": "category", "type": "string", "default": "GENERAL" },
+    { "name": "unit_price", "type": "double" },
+    { "name": "description", "type": ["null", "string"], "default": null }
+  ]
+}
