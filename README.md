@@ -2,6 +2,9 @@ docker-compose up -d
 
 docker-compose down
 
+### To add new topics or increase/decrease topic partitions
+edit Docker/scripts/init-topics.sh or use KafkaUI
+
 
 ### To view KafkaUI go to http://localhost:8080/
 
